@@ -66,16 +66,17 @@ const LoginPage = () => {
                         }}
                     >
                         <img
-                            src="https://www.mckinsey.com/~/media/Images/Global/SEOImagePlaceholder.ashx"
-                            alt="McKinsey"
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Devops-toolchain.svg/2560px-Devops-toolchain.svg.png"
+                            alt="Devops Icon"
                             className="logo"
                             style={{
-                                width: "40px", // Adjust the icon size
-                                marginBottom: "10px", // Add space between icon and text
+                                marginTop:"5px",
+                                marginRight: "5px",
+                                height:"28px",
+                                width: "42px", // Adjust the icon size
                             }}
                         />
-                        <span></span>
-                        <h2 style={{ fontWeight: "bold" }}>McKinsey</h2>
+                        <h2 style={{ fontWeight: "bold" }}>Devops Management</h2>
                     </div>
 
 
@@ -287,7 +288,7 @@ const LoginPage = () => {
                             <div
                                 className="col-4 col-md-2 mb-3"
                                 style={{ cursor: 'pointer' }}
-                                onClick={() => window.location.href = 'https://accounts.google.com/ServiceLogin'} // Redirect to Google login
+                                onClick={() => window.location.href = 'https://accounts.google.com/ServiceLogin'}
                             >
                                 <div
                                     className="card"
@@ -343,12 +344,13 @@ const LoginPage = () => {
             >
                 <img
                     className="foreground-image"
-                    src="https://app.harness.io/auth/assets/saas-fg.ee2d34be.png"
+                    src="https://www.shutterstock.com/image-vector/3d-devops-development-service-continuous-600nw-2313123169.jpg"
                     alt="foreground-image"
                     aria-hidden="true"
                     style={{
                         width: "100%",
-                        height: "auto",
+                        height: "100%",
+                        // objectFit:"cover",
                     }}
                 />
             </div>

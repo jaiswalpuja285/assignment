@@ -61,8 +61,8 @@
 .d-flex {
   display: flex;
   align-items: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  /* margin-top: 20px; */
+  /* margin-bottom: 20px; */
 }
 
 hr {
@@ -142,5 +142,60 @@ background-color:rgb(10 51 100) !important;
   color: red;
   font-weight: bold;
 }
+/* 
+.slide-modal {
+  position: fixed;
+  top: 0;
+  left: -60%;
+  width: 60%;
+  height: 100%;
+  background: #fff;
+  box-shadow: 2px 0px 6px rgba(0, 0, 0, 0.2);
+  transition: left 0.3s ease-in-out;
+}
 
+.slide-modal.show {
+  left: 0;
+} */
 
+/* .open{
+  background-color: red;
+} */
+
+.hover-block {
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.user-block:hover .hover-block {
+  opacity: 1;
+  transform: translateX(0);
+}
+.platform-card {
+  transition: background-color 0.3s ease;
+}
+
+.platform-card:hover {
+  background-color: #f0f0f0; /* Change to desired hover color */
+}
+/* Adjust card size */
+.small-card {
+  width: 150px; /* Decrease width of the card */
+  height: 150px; /* Optionally adjust height if needed */
+  border: none; /* Remove border */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add box shadow */
+  transition: box-shadow 0.3s ease; /* Smooth transition for box shadow on hover */
+
+}
+
+.m-card-body {
+  padding: 5px; /* Reduce padding inside the card */
+}
+
+/* Reduce icon size */
+.small-card .drag-item-icon {
+  font-size: 24px; /* Adjust this value to reduce the icon size */
+  max-width: 50px; /* Optional: Set max-width for better scaling */
+  max-height: 50px; /* Optional: Set max-height for better scaling */
+}
