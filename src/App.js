@@ -14,7 +14,7 @@
 //           <Routes>
 //             {/* Public Route for Login */}
 //             <Route path="/login" element={<LoginPage />} />
-  
+
 //             {/* Protected Route for Home */}
 //             <Route
 //               path="/home"
@@ -22,7 +22,7 @@
 //                 <ProtectedRoute element={<Dashboard />} />
 //               }
 //             />
-  
+
 //             {/* Default redirect to Home */}
 //             <Route path="/" element={<Navigate to="/dashboard" />} />
 //           </Routes>
@@ -30,7 +30,7 @@
 //       </AuthProvider>
 //     );
 //   };
-  
+
 //   export default App;
 
 
@@ -44,14 +44,14 @@ import { HTML5Backend } from 'react-dnd-html5-backend'; // Backend for handling 
 
 function App() {
   const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-console.log(isLoggedIn, "isLoggedIn");
+  console.log(isLoggedIn, "isLoggedIn");
   return (
     <DndProvider backend={HTML5Backend}>
 
-    <Router>
-      <Routes>
-        {routeConfig.map((route, index) => {
-          // Check if the route is protected and the user is not logged in
+      <Router>
+        <Routes>
+          {routeConfig.map((route, index) => {
+            // Check if the route is protected and the user is not logged in
             return (
               <Route
                 key={index}
@@ -60,8 +60,8 @@ console.log(isLoggedIn, "isLoggedIn");
               />
             );
           })}
-      </Routes>
-    </Router>
+        </Routes>
+      </Router>
     </DndProvider>
 
   );

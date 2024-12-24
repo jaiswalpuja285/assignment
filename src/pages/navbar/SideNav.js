@@ -8,7 +8,7 @@ const SideNav = ({ activeContent, setActiveContent }) => {
   const handleModalClose = () => setActiveModal(null);
 
   const userName = "Puja Kumari";
-  const email = "jaiswalpuja285@gmail.com"
+  const email = "jaiswalpuja285@gmail.com";
   const navItems = [
     { name: "Source Code Management", modal: "sourceCode", id: "sourceCode" },
     { name: "Help", modal: "help", id: "help" },
@@ -18,8 +18,8 @@ const SideNav = ({ activeContent, setActiveContent }) => {
     <div className="d-flex mt-0">
       {/* Side Navigation */}
       <nav
-        className="nav flex-column vh-100 sidebar-btn"
-        style={{ width: "250px", backgroundColor: "#0a3364" }}
+        className="nav flex-column vh-100 sidebar-btn w-250"
+        style={{ backgroundColor: "#0a3364" }}
       >
         {navItems.map((item, index) => (
           <button
@@ -37,7 +37,7 @@ const SideNav = ({ activeContent, setActiveContent }) => {
             {item.name}
           </button>
         ))}
-        
+
         {/* User Name Block */}
         <div
           className="user-block text-start border-0 py-3 px-3 position-absolute"
@@ -70,17 +70,16 @@ const SideNav = ({ activeContent, setActiveContent }) => {
               {userName.charAt(0).toUpperCase()}
             </div>
             <span style={{ color: "#fff" }}>{userName}</span>
-
           </div>
 
           {/* Hover Block */}
           {showUserOptions && (
             <div
-              className="hover-block"
+              className="hover-block caret-left"
               style={{
                 position: "absolute",
                 top: "-50%",
-                left: "15%",
+                left: "12%",
                 backgroundColor: "#fff",
                 padding: "10px",
                 minWidth: "200px",
@@ -150,7 +149,6 @@ const SideNav = ({ activeContent, setActiveContent }) => {
                 </div>
               </div>
 
-
               {/* Horizontal Line */}
               <hr
                 style={{
@@ -173,22 +171,17 @@ const SideNav = ({ activeContent, setActiveContent }) => {
                 }}
                 onClick={() => {
                   localStorage.clear();
-
                   window.location.reload();
                 }}
-
-
               >
                 Logout
               </button>
             </div>
           )}
         </div>
-
       </nav>
 
       {/* Modals */}
-      {/* <HelpModal show={activeModal === "help"} onClose={handleModalClose} /> */}
       <SourceCodeModal
         show={activeModal === "sourceCode"}
         onClose={handleModalClose}

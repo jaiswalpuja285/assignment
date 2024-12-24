@@ -17,6 +17,7 @@ const DropArea = ({ selectedItem, onDrop }) => {
       style={{
         minHeight: "150px",
         background: isOver ? "#e6f7ff" : "#f8f9fa",
+        boxSizing: "border-box",
       }}
     >
       {selectedItem ? (

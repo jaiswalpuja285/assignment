@@ -1,22 +1,20 @@
 import React, { useState } from 'react';
-import DetailsModal from '../modal/DetailsModal';
+import ConfigureModal from '../modal/ConfigureModal';
+import DropArea from './DropArea';
 
-const SourceCode = ({ tableData }) => {
-  const [showModal, setShowModal] = useState(false);  // State to control modal visibility
-  const [modalContent, setModalContent] = useState(''); // State to store content for the modal
-
-  // Function to open modal with the details content
-  const openModal = (content) => {
-    setModalContent(content);  // Set the modal content
-    setShowModal(true);  // Show the modal
+const SourceCode = ({ tableData}) => {
+  const [modalData, setModalData] = useState(null); // State to hold modal data
+  const [showModal, setShowModal] = useState(false); 
+  const [showData, setShowData] = useState(false);
+  const handleDrop = (item) => {
+    setModalData(item); // Set the dropped item's details
+    setShowModal(true); // Open the modal
   };
 
-  // Function to close the modal
   const closeModal = () => {
-    setShowModal(false);  // Close the modal
-    setModalContent('');  // Clear the modal content
+    setShowModal(false);
+    setModalData(null);
   };
-
   return (
     <div
       style={{
@@ -24,6 +22,7 @@ const SourceCode = ({ tableData }) => {
         marginTop: "-200px"
       }}
     >
+      {showData == true && <>
       {/* Table count */}
       <div
         style={{
@@ -97,9 +96,11 @@ const SourceCode = ({ tableData }) => {
           </div>
         ))}
       </div>
+      </>}
+      
+      <DropArea onDrop={handleDrop} />
 
-      {/* Details Modal */}
-      <DetailsModal show={showModal} url={modalContent} onClose={closeModal} />
+      <ConfigureModal show={showModal} showData={showData} setShowData={setShowData} item={modalData} onClose={closeModal} />
     </div>
   );
 };

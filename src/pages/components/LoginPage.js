@@ -12,18 +12,12 @@ const LoginPage = () => {
 
     // Handle form submission
     const handleLogin = (e) => {
-        e.preventDefault(); // Prevent form from refreshing the page
-
-        // Clear previous error message
+        e.preventDefault();
         setError('');
-
-        // Check if fields are empty
         if (!email || !password) {
             setError('Email and password are required');
             return;
         }
-
-        // Check if credentials match
         if (
             (email === 'abc@gmail.com') &&
             password === 'abc@123'
@@ -47,22 +41,21 @@ const LoginPage = () => {
                 style={{
                     width: "40%",
                     display: "flex",
-                    maxHeight: "100vh", // Set the max height to 90% of the viewport height
-                    overflowY: "auto", // Enable vertical scrolling when content exceeds the maxHeight
+                    maxHeight: "100vh", 
+                    overflowY: "auto", 
 
-                    flexDirection: "column", // Stack content vertically
-                    alignItems: "flex-start", // Align all content to the left
-                    padding: "50px", // Add padding for spacing
+                    flexDirection: "column", 
+                    alignItems: "flex-start", 
+                    padding: "50px",
                 }}
             >
                 <div className="login-card" style={{ width: "100%" }}>
-                    {/* Harness Logo */}
                     <div
                         className="logo-container"
                         style={{
                             marginBottom: "35px",
                             display: "flex",
-                            alignItems: "flex-start", // Aligns to the left
+                            alignItems: "flex-start",
                         }}
                     >
                         <img
@@ -73,14 +66,12 @@ const LoginPage = () => {
                                 marginTop:"5px",
                                 marginRight: "5px",
                                 height:"28px",
-                                width: "42px", // Adjust the icon size
+                                width: "42px",
                             }}
                         />
                         <h2 style={{ fontWeight: "bold" }}>Devops Management</h2>
                     </div>
 
-
-                    {/* Title */}
                     <h2 className="mt-3">
                         Sign In
                     </h2>
@@ -104,16 +95,16 @@ const LoginPage = () => {
 
                                 style={{
                                     width: "100%",
-                                    border: "1px solid #ccc", // Default border color
-                                    borderRadius: "5px", // Rounded corners for the input
+                                    border: "1px solid #ccc", 
+                                    borderRadius: "5px",
                                 }}
                                 onFocus={(e) => {
-                                    e.target.style.borderColor = "black"; // Focus event: change border to black
-                                    e.target.style.boxShadow = "none"; // Remove default box-shadow
+                                    e.target.style.borderColor = "black"; 
+                                    e.target.style.boxShadow = "none"; 
                                 }}
                                 onBlur={(e) => {
-                                    e.target.style.borderColor = "#ccc"; // Blur event: revert border color
-                                    e.target.style.boxShadow = "none"; // Ensure box-shadow is removed
+                                    e.target.style.borderColor = "#ccc";
+                                    e.target.style.boxShadow = "none";
                                 }}
                             />
                         </div>
@@ -147,12 +138,12 @@ const LoginPage = () => {
                                 onChange={(e) => setPassword(e.target.value)}
 
                                 onFocus={(e) => {
-                                    e.target.style.borderColor = "black"; // Focus event: change border to black
-                                    e.target.style.boxShadow = "none"; // Remove default box-shadow
+                                    e.target.style.borderColor = "black"; 
+                                    e.target.style.boxShadow = "none";
                                 }}
                                 onBlur={(e) => {
-                                    e.target.style.borderColor = "#ccc"; // Blur event: revert border color
-                                    e.target.style.boxShadow = "none"; // Ensure box-shadow is removed
+                                    e.target.style.borderColor = "#ccc"; 
+                                    e.target.style.boxShadow = "none"; 
                                 }}
                             />
                         </div>
@@ -175,7 +166,7 @@ const LoginPage = () => {
                                 fontWeight: "400",
                                 fontSize: "16px",
                                 padding: "10px 0",
-                                width: "100%", // Make the button span the full width
+                                width: "100%", 
                             }}
                             onClick={handleLogin}
                         >

@@ -6,12 +6,11 @@ import { useDrop } from "react-dnd";
 const Dashboard = () => {
   const [activeContent, setActiveContent] = useState("sourceCode");
   const [tableData, setTableData] = useState([]);
-
+  const [showData, setShowData] = useState(false);
   const [{ isOver }, drop] = useDrop(() => ({
-    accept: "platform", // the type of draggable item
+    accept: "platform",
     drop: (item) => {
       // Handle the drop event by adding the dropped platform to the table
-      console.log(item, "item")
       setTableData((prevData) => [
         ...prevData,
         {
