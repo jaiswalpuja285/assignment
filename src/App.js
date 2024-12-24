@@ -40,6 +40,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { routeConfig } from './RoutesConfig';  // Your route configuration file
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend'; // Backend for handling drag-and-drop
+import { ModalProvider } from './context/ModalContext';
 
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
   console.log(isLoggedIn, "isLoggedIn");
   return (
     <DndProvider backend={HTML5Backend}>
+    <ModalProvider>
 
       <Router>
         <Routes>
@@ -62,6 +64,8 @@ function App() {
           })}
         </Routes>
       </Router>
+      </ModalProvider>
+
     </DndProvider>
 
   );

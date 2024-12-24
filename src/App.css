@@ -2,7 +2,6 @@
 .login-page-container {
   height: 100vh;
   display: flex;
-
 }
 
 .image-section {
@@ -45,14 +44,12 @@
   font-size: 14px;
   padding: 10px;
   box-shadow: none; /* Ensure no box-shadow by default */
-
 }
 /* Remove default box-shadow and set the focus border color to black */
 .form-control:focus {
   border-color: black; /* Focused border color */
   box-shadow: none; /* Remove the default focus box-shadow */
 }
-
 
 .form-label {
   font-size: 15px;
@@ -80,12 +77,12 @@ span {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background-color: #f2f2f5;
 }
-.sidebar-btn button:hover{
+.sidebar-btn button:hover {
   background-color: #1b2e49 !important;
 }
 
-.sidebar-btn button{
-background-color:rgb(10 51 100) !important;
+.sidebar-btn button {
+  background-color: rgb(10 51 100) !important;
 }
 .dashboard-container {
   display: flex;
@@ -102,7 +99,6 @@ background-color:rgb(10 51 100) !important;
   flex: 1;
   padding: 20px;
 }
-
 
 .source-container {
   padding: 20px;
@@ -186,7 +182,6 @@ background-color:rgb(10 51 100) !important;
   border: none; /* Remove border */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add box shadow */
   transition: box-shadow 0.3s ease; /* Smooth transition for box shadow on hover */
-
 }
 
 .m-card-body {
@@ -200,10 +195,9 @@ background-color:rgb(10 51 100) !important;
   max-height: 50px; /* Optional: Set max-height for better scaling */
 }
 
-
 /* sidenavigation alert css */
 
-.w-250{
+.w-250 {
   width: 250px;
 }
 
@@ -214,15 +208,15 @@ background-color:rgb(10 51 100) !important;
 }
 
 span.msg-popover {
-  width:150px;
+  width: 150px;
   position: absolute;
-  background: rgba(0,0,0,0.8);
+  background: rgba(0, 0, 0, 0.8);
   color: #fff;
   padding: 5px;
   border-radius: 8px;
   bottom: 100%;
   /* left: calc(50% - 38px); */
-  transition: all .5s ease;
+  transition: all 0.5s ease;
   /* transform: translateY(-10px); */
   opacity: 0;
   margin-inline: 0;
@@ -230,7 +224,6 @@ span.msg-popover {
   margin-bottom: 11px;
   /* visibility: hidden; */
 }
-
 
 span.msg-popover::before {
   content: "";
@@ -244,7 +237,7 @@ span.msg-popover::before {
   z-index: 9;
 }
 
-.side-nav-left{
+.side-nav-left {
   width: 785px;
   display: flex;
   flex-direction: row;
@@ -259,9 +252,8 @@ span.msg-popover::before {
   background: #fff;
 }
 
-
-.nav + .side-nav-left.active{
-   left: -100;
+.nav + .side-nav-left.active {
+  left: -100;
 }
 
 .hover-block.caret-left::before {
@@ -275,7 +267,7 @@ span.msg-popover::before {
   top: 50%;
 }
 
-.sourcecode-popup{
+.sourcecode-popup {
   height: 100%;
   position: fixed;
   z-index: 1;
@@ -283,15 +275,14 @@ span.msg-popover::before {
   left: 0;
   background-color: #fff;
   overflow-x: hidden;
-  transition: .8s;
+  transition: 0.8s;
 
-  background:rgb(255, 255, 255);
-  z-index:1000;
-  display:flex;
+  background: rgb(255, 255, 255);
+  z-index: 1000;
+  display: flex;
   /* max-width:630px; */
-  box-shadow:0px 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
-
 
 .sidenav a {
   padding: 8px 8px 8px 32px;
@@ -314,6 +305,6 @@ span.msg-popover::before {
   margin-left: 50px;
 }
 
-.c-dialog .modal-dialog{
+.c-dialog .modal-dialog {
   max-width: 700px;
 }

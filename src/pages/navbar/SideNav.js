@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-// import HelpModal from "../modal/HelpModal";
 import SourceCodeModal from "../modal/SourceCodeModal";
+import { useModal } from "../../context/ModalContext";
+import { useNavigate } from "react-router-dom";
 
 const SideNav = ({ activeContent, setActiveContent }) => {
-  const [activeModal, setActiveModal] = useState(null);
+  const navigate = useNavigate();
+
+  const { activeModal, openModal, closeModal } = useModal();
   const [showUserOptions, setShowUserOptions] = useState(false);
-  const handleModalClose = () => setActiveModal(null);
 
   const userName = "Puja Kumari";
   const email = "jaiswalpuja285@gmail.com";
@@ -31,7 +33,7 @@ const SideNav = ({ activeContent, setActiveContent }) => {
             }}
             onClick={() => {
               setActiveContent(item.id);
-              if (item.modal) setActiveModal(item.modal);
+              if (item.modal) openModal(item.modal); // Open the modal using context
             }}
           >
             {item.name}
@@ -117,14 +119,14 @@ const SideNav = ({ activeContent, setActiveContent }) => {
                   {userName.charAt(0).toUpperCase()}
                 </div>
 
-                {/* User Details (Aligned to Avatar Height and Starting from Left) */}
+                {/* User Details */}
                 <div
                   className="user-details"
                   style={{
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "center",
-                    marginLeft: "10px", // Space between avatar and details
+                    marginLeft: "10px",
                   }}
                 >
                   <span
@@ -141,7 +143,7 @@ const SideNav = ({ activeContent, setActiveContent }) => {
                     style={{
                       fontSize: "12px",
                       lineHeight: "18px",
-                      color: "rgba(0, 0, 0, 0.6)", // Subtle gray for email
+                      color: "rgba(0, 0, 0, 0.6)",
                     }}
                   >
                     {email}
@@ -149,7 +151,6 @@ const SideNav = ({ activeContent, setActiveContent }) => {
                 </div>
               </div>
 
-              {/* Horizontal Line */}
               <hr
                 style={{
                   border: "1px solid rgba(0, 0, 0, 0.1)",
@@ -171,6 +172,8 @@ const SideNav = ({ activeContent, setActiveContent }) => {
                 }}
                 onClick={() => {
                   localStorage.clear();
+                  navigate("/");
+
                   window.location.reload();
                 }}
               >
@@ -182,10 +185,9 @@ const SideNav = ({ activeContent, setActiveContent }) => {
       </nav>
 
       {/* Modals */}
-      <SourceCodeModal
-        show={activeModal === "sourceCode"}
-        onClose={handleModalClose}
-      />
+      {activeModal === "sourceCode" && (
+        <SourceCodeModal show={true} onClose={closeModal} />
+      )}
     </div>
   );
 };
