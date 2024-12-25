@@ -6,7 +6,6 @@
 // import LoginPage from './pages/components/LoginPage';
 // import ProtectedRoute from './protectedRoute';
 
-
 // const App = () => {
 //     return (
 //       <AuthProvider>
@@ -33,41 +32,31 @@
 
 //   export default App;
 
-
-import './App.css';
+import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { routeConfig } from './RoutesConfig';  // Your route configuration file
-import { DndProvider } from 'react-dnd';
-import { HTML5Backend } from 'react-dnd-html5-backend'; // Backend for handling drag-and-drop
-import { ModalProvider } from './context/ModalContext';
-
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { routeConfig } from "./RoutesConfig"; // Your route configuration file
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend"; // Backend for handling drag-and-drop
+import { ModalProvider } from "./context/ModalContext";
 
 function App() {
-  const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-  console.log(isLoggedIn, "isLoggedIn");
+  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
   return (
     <DndProvider backend={HTML5Backend}>
-    <ModalProvider>
-
-      <Router>
-        <Routes>
-          {routeConfig.map((route, index) => {
-            // Check if the route is protected and the user is not logged in
-            return (
-              <Route
-                key={index}
-                path={route.path}
-                element={route.element}
-              />
-            );
-          })}
-        </Routes>
-      </Router>
+      <ModalProvider>
+        <Router>
+          <Routes>
+            {routeConfig.map((route, index) => {
+              // Check if the route is protected and the user is not logged in
+              return (
+                <Route key={index} path={route.path} element={route.element} />
+              );
+            })}
+          </Routes>
+        </Router>
       </ModalProvider>
-
     </DndProvider>
-
   );
 }
 

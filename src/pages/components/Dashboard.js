@@ -6,7 +6,6 @@ import { useDrop } from "react-dnd";
 const Dashboard = () => {
   const [activeContent, setActiveContent] = useState("sourceCode");
   const [tableData, setTableData] = useState([]);
-  const [showData, setShowData] = useState(false);
   const [{ isOver }, drop] = useDrop(() => ({
     accept: "platform",
     drop: (item) => {
@@ -29,7 +28,10 @@ const Dashboard = () => {
     <div className="dashboard-container d-flex">
       {/* Side Navigation */}
       <div className="sidenav">
-        <SideNav activeContent={activeContent} setActiveContent={setActiveContent} />
+        <SideNav
+          activeContent={activeContent}
+          setActiveContent={setActiveContent}
+        />
       </div>
 
       {/* Main Content */}

@@ -4,29 +4,33 @@ import DropArea from "./DropArea";
 import { useModal } from "../../context/ModalContext";
 
 const SourceCode = ({ tableData }) => {
-  const { closeModal } = useModal(); // Access context functions and state
+  const { activeModal, openModal, closeModal } = useModal();
 
-  const [modalData, setModalData] = useState(null); // State to hold modal data
-  const [showModal, setShowModal] = useState(false);
+  const [modalData, setModalData] = useState(null);
   const [showData, setShowData] = useState(false);
+
   const handleDrop = (item) => {
-    // closeModal();
-    setModalData(item); // Set the dropped item's details
-    setShowModal(true); // Open the modal
+    setModalData(item);
+    closeModal();
+    openModal("ConfigureModal");
   };
 
   const closeConfigureModal = () => {
-    setShowModal(false);
+    closeModal();
     setModalData(null);
   };
+
   return (
     <div
       style={{
         padding: "20px",
-        marginTop: "-200px",
+        marginTop: "-300px",
       }}
     >
-      {showData == true && (
+      {/* DropArea */}
+      <DropArea onDrop={handleDrop} />
+
+      {showData && (
         <>
           {/* Table count */}
           <div
@@ -84,8 +88,6 @@ const SourceCode = ({ tableData }) => {
                 <span
                   style={{ flex: 2, color: "#555", cursor: "pointer" }}
                   onClick={() => window.open(row.details, "_blank")} // Open URL in new tab
-
-                  // onClick={() => openModal(row.details)} // Trigger the modal on click
                 >
                   {row.details}
                 </span>
@@ -104,15 +106,16 @@ const SourceCode = ({ tableData }) => {
         </>
       )}
 
-      <DropArea onDrop={handleDrop} />
-
-      <ConfigureModal
-        show={showModal}
-        showData={showData}
-        setShowData={setShowData}
-        item={modalData}
-        onClose={closeConfigureModal}
-      />
+      {/* ConfigureModal */}
+      {activeModal === "ConfigureModal" && (
+        <ConfigureModal
+          show={true}
+          showData={showData}
+          setShowData={setShowData}
+          item={modalData}
+          onClose={closeConfigureModal}
+        />
+      )}
     </div>
   );
 };
